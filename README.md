@@ -5,7 +5,7 @@
 
 # Docker Server Template [Nginx + PHP 7.4 + MariaDB 10.5]
 
-Docker template with default images and custons on docker-compose.yml
+Docker template with default images and customs on docker-compose.yml
 
 By default this container runs:
 
