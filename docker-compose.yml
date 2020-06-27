@@ -1,0 +1,46 @@
+version: "3"
+
+services:
+  # setting up MariaDB
+  db:
+    image: mariadb:10.5
+    container_name: "mariadb-server"
+    environment:
+      - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=db_name
+    ports:
+      - 8011:3306
+    volumes:
+      - ./.docker/db:/var/lib/mysql
+
+  # build PHP-FPM apart from Nginx server
+  # to change PHP Version update the .docker/php/Dockerfile
+  php:
+    build: .docker/php
+    container_name: "php-server"
+    image: server-php-nginx
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "9000:9000"
+
+  #build Nginx default server
+  nginx:
+    image: nginx
+    container_name: "nginx-server"
+    volumes:
+      - .docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./:/var/www/html
+    ports:
+      - "8010:80"
+    links:
+      - db
+      - php
+    depends_on:
+      - db
+      - php
+    tty: true
+
+
