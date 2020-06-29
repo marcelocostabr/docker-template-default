@@ -34,7 +34,7 @@ To use, please follow the steps bellow:
 
 ## Clone this repository
 
-Open de root folder in terminal and type:
+Open de root folder in the terminal and type:
 
 ```
 git clone https://github.com/marcelocostabr/docker-template-default.git
@@ -42,7 +42,7 @@ git clone https://github.com/marcelocostabr/docker-template-default.git
 
 ## Install Docker
 
-Certify if you had installed the Docker, at terminal type:
+Make sure you have Docker installed, in the terminal type:
 
 ```
 docker -v
