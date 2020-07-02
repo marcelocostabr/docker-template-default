@@ -29,8 +29,9 @@ To use, please follow the steps bellow:
 
 1) [Clone this repository](#clone-this-repository)
 2) [Install Docker](#install-docker)
-3) [Run and manage the Docker Server](#run-docker)
-4) [Browse to localhost:8010](#browse)
+3) [Setting up the Virtual Server](#setting-up-the-virtual-server)
+4) [Run and manage the Docker Server](#run-docker)
+5) [Browse to localhost:8010](#browse)
 
 ## Clone this repository
 
@@ -49,6 +50,19 @@ docker -v
 ```
 
 If you have something like this: "Docker version 19.03.8, build afacb8b" you can continue, if not please go to [https://www.docker.com/](https://www.docker.com/).
+
+## Setting up the Virtual Server
+
+You most to edit ./docker/nginx/default.conf with the server name desired.
+
+```
+server_name site.local www.site.local;
+```
+After that edit the /etc/hosts file in your OS adding the following line:
+
+```
+127.0.0.1 site.local www.site.local
+```
 
 ## Run Docker
 
@@ -82,6 +96,7 @@ Stop and Remove all Containers
 docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)
 ```
 
+
 ## Browse
 
-To access the server please go to [localhost:8010](localhost:8010).
+To access the server please go to [http://site.local](http://site.local).
