@@ -4,6 +4,9 @@ services:
   # setting up MariaDB
   db:
     image: mariadb:10.5
+    # important to use on database connection
+    # file the same name that the container_name
+    # bellow as host
     container_name: "mariadb-server"
     environment:
       - MYSQL_USER=root
