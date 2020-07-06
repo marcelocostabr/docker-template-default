@@ -2,3 +2,6 @@
 .idea/
 .idea
 /secret/Config.php
+.docker/nginx/server.pem
+.docker/nginx/server-key.pem
+.DS_Store

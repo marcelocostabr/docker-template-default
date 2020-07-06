@@ -34,10 +34,19 @@ services:
     image: nginx
     container_name: "nginx-server"
     volumes:
+      # enable SSL
+      - .docker/nginx/server.pem:/etc/nginx/ssl/server.pem
+      - .docker/nginx/server-key.pem:/etc/nginx/ssl/server-key.pem
+      # Ngixn configs
       - .docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      # logs
+      - .docker/nginx/client-access.log:/var/log/nginx/client-access.log;
+      - .docker/nginx/client-error.log:/var/log/nginx/client-error.log;
+      # Server root
       - ./:/var/www/html
     ports:
       - "80:80"
+      - "443:443"
       #- "8010:80"
     links:
       - db
