@@ -55,7 +55,7 @@ If you have something like this: "Docker version 19.03.8, build afacb8b" you can
 
 ## Setting up the Virtual Server
 
-You most to edit ./docker/nginx/default.conf with the server name desired.
+You must to edit ./docker/nginx/default.conf with the server name desired.
 
 ```
 server_name dev.local www.dev.local;
